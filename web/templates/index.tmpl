@@ -1,0 +1,11 @@
+{% extends "base.tmpl" %}
+{% from "_table.tmpl" import render_table %}
+
+{% block content %}
+<h1>#TDU〇〇サークル まとめ</h1>
+<p class="lead">このサイトでは、Twitterでツイートされた『#TDU〇〇サークル』の情報を集めています。</p>
+<p>入力は<a href="{{ url_for("register") }}">こちらから</a></p>
+<h2>最近追加されたサークル</h2>
+{{ render_table(recent_data) }}
+<p><a href="{{ url_for("club_list") }}">すべて見る</a></p>
+{% endblock %}

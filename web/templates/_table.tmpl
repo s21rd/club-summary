@@ -1,0 +1,20 @@
+{% macro render_table(club_data) %}
+<table class="table">
+    <tr>
+        <th>追加日時</th>
+        <th>サークル名</th>
+        <th>初出ツイート</th>
+    </tr>
+    {% for raw in club_data %}
+    <tr>
+        <td>{{ raw.created_at }}</td>
+        <td><a href="{{ ("https://twitter.com/search?lang=ja&q=(%23" | string ) + (raw.name | urlencode() ) + (")&src=typed_query" | string )}}">{{ raw.name }}</a></td>
+        <td><a href="{{ raw.first_tweet }}">{{ raw.first_tweet }}</a></td>
+    </tr>
+    {% else %}
+    <tr>
+        <td>No Data.</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endmacro %}}

@@ -1,0 +1,7 @@
+{% extends "base.tmpl" %}
+{% from "_table.tmpl" import render_table %}
+
+{% block content %}
+<h1>#TDU〇〇サークルの一覧</h1>
+{{ render_table(club_data) }}
+{% endblock %}
